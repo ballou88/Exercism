@@ -1,7 +1,10 @@
 """Functions to prevent a nuclear meltdown."""
+from typing import TypeVar
+
+T = TypeVar("T", int, float)
 
 
-def is_criticality_balanced(temperature, neutrons_emitted):
+def is_criticality_balanced(temperature: T, neutrons_emitted: T) -> bool:
     """Verify criticality is balanced.
 
     :param temperature: int or float - temperature value in kelvin.
@@ -20,7 +23,7 @@ def is_criticality_balanced(temperature, neutrons_emitted):
     )
 
 
-def reactor_efficiency(voltage, current, theoretical_max_power):
+def reactor_efficiency(voltage: T, current: T, theoretical_max_power: T) -> str:
     """Assess reactor efficiency zone.
 
     :param voltage: int or float - voltage value.
@@ -49,7 +52,7 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
     return "black"
 
 
-def fail_safe(temperature, neutrons_produced_per_second, threshold):
+def fail_safe(temperature: T, neutrons_produced_per_second: T, threshold: T) -> str:
     """Assess and return status code for the reactor.
 
     :param temperature: int or float - value of the temperature in kelvin.
