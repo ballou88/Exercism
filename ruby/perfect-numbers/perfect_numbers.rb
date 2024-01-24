@@ -9,7 +9,7 @@ class PerfectNumber
 
     aliqout = factors_of(number).inject(:+)
 
-    if aliquot > number
+    if aliqout > number
       'abundant'
     elsif aliqout == number
       'perfect'
