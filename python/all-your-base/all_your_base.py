@@ -7,10 +7,8 @@ def rebase(input_base: int, digits: list[int], output_base: int) -> list[int]:
 
 
 def to_base_10(input_base: int, digits: list[int]) -> int:
-    if not digits:
-        return 0
-    base_10 = digits[0]
-    for digit in digits[1:]:
+    base_10 = 0
+    for digit in digits:
         if not (0 <= digit < input_base):
             raise ValueError("all digits must satisfy 0 <= d < input base")
         base_10 = base_10 * input_base + digit
@@ -20,7 +18,7 @@ def to_base_10(input_base: int, digits: list[int]) -> int:
 def to_output_base(base_10: int, output_base: int) -> list[int]:
     output = []
     while base_10 > 0:
-        (base_10, rem) = divmod(base_10, output_base)
+        base_10, rem = divmod(base_10, output_base)
         output.append(rem)
     output.reverse()
     return output or [0]
