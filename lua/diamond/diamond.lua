@@ -25,4 +25,3 @@ return function(letter)
 	end
 	return string
 end
-string.find

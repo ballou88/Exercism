@@ -44,12 +44,8 @@ def letter_grades(highest):
             86 <= "A" <= 100
     """
 
-    grades = ["D", "C", "B", "A"]
     width = (highest - 40) // 4
-    thresholds = []
-    for i, _ in enumerate(grades):
-        thresholds.append(41 + width * i)
-    return thresholds
+    return [41 + width * index for index in range(4)]
 
 
 def student_ranking(student_scores, student_names):
@@ -60,8 +56,8 @@ def student_ranking(student_scores, student_names):
     :return: list - of strings in format ["<rank>. <student name>: <score>"].
     """
     return [
-        f"{i + 1}. {name}: {score}"
-        for i, (name, score) in enumerate(zip(student_names, student_scores))
+        f"{index + 1}. {name}: {score}"
+        for index, (name, score) in enumerate(zip(student_names, student_scores))
     ]
 
 
